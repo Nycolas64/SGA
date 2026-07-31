@@ -1,2 +1,13 @@
 
 Este repositório apresenta a codificação inicial das funções de cadastro, e gerenciamento de ambientes do Sistema de Gestão Acadêmica, usando banco de dados H2.
+
+Planejamento:
+
+-Obrigatoriedade dos campos capacidade, e equipamentos na classe Ambiente.
+-Trava de segurança para data, e horários de início e fim na Solicitacao.
+-E-mail, e senha como informações obrigatórias na classe pai Usuario.
+-Criação da nova entidade Equipamento, e de seu respectivo repositório.
+-Substituição do texto de equipamentos por uma lista de objetos em Ambiente.
+-Ajuste para que Coordenadores realizem solicitações, e registro do Gestor.
+-Inclusão do estado Em Análise, e da lógica de transição ao abrir o pedido.
+-Configuração de Websocket, e do aviso de que a sala está em edição.
