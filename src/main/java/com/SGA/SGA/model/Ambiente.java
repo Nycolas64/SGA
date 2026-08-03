@@ -1,3 +1,4 @@
+
 package com.SGA.SGA.model;
 
 import jakarta.persistence.Entity;
@@ -18,8 +19,10 @@ public class Ambiente {
 
     private String descricao;
 
+    @Column(nullable = false)
     private Integer capacidade;
 
+    @Column(nullable = false)
     private String equipamentos;
 
     public Ambiente() {
