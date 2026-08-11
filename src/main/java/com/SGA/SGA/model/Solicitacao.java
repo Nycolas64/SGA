@@ -17,6 +17,9 @@ public class Solicitacao {
     @ManyToOne
     private Ambiente ambiente;
 
+    @ManyToOne
+    private Gestor gestor;
+
     @Column(nullable = false)
     private LocalDate data;
 
@@ -42,6 +45,8 @@ public class Solicitacao {
     public void setProfessor(Professor professor) { this.professor = professor; }
     public Ambiente getAmbiente() { return ambiente; }
     public void setAmbiente(Ambiente ambiente) { this.ambiente = ambiente; }
+    public Gestor getGestor() { return gestor; }
+    public void setGestor(Gestor gestor) { this.gestor = gestor; }
     public LocalDate getData() { return data; }
     public void setData(LocalDate data) { this.data = data; }
     public LocalTime getHorarioInicio() { return horarioInicio; }
