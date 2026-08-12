@@ -58,11 +58,11 @@ public class DataLoader implements CommandLineRunner {
             
             ambienteRepository.saveAll(List.of(s1, s2, inf, lab));
 
-            Professor p1 = new Professor(); p1.setNome("João"); p1.setEmail("joao@unifil.br"); p1.setTitulacao("Mestre");
-            Professor p2 = new Professor(); p2.setNome("Alice"); p2.setEmail("alice@unifil.br"); p2.setTitulacao("Doutora");
-            Professor p3 = new Professor(); p3.setNome("Maria"); p3.setEmail("maria@unifil.br"); p3.setTitulacao("Especialista");
-            Professor p4 = new Professor(); p4.setNome("Pedro"); p4.setEmail("pedro@unifil.br"); p4.setTitulacao("Mestre");
-            Professor p5 = new Professor(); p5.setNome("Marcos"); p5.setEmail("marcos@unifil.br"); p5.setTitulacao("Especialista");
+            Professor p1 = new Professor(); p1.setNome("João"); p1.setEmail("joao@unifil.br"); p1.setTitulacao("Mestre"); p1.setSenha("123456");
+            Professor p2 = new Professor(); p2.setNome("Alice"); p2.setEmail("alice@unifil.br"); p2.setTitulacao("Doutora"); p2.setSenha("123456");
+            Professor p3 = new Professor(); p3.setNome("Maria"); p3.setEmail("maria@unifil.br"); p3.setTitulacao("Especialista"); p3.setSenha("123456");
+            Professor p4 = new Professor(); p4.setNome("Pedro"); p4.setEmail("pedro@unifil.br"); p4.setTitulacao("Mestre"); p4.setSenha("123456");
+            Professor p5 = new Professor(); p5.setNome("Marcos"); p5.setEmail("marcos@unifil.br"); p5.setTitulacao("Especialista"); p5.setSenha("123456");
             usuarioRepository.saveAll(List.of(p1, p2, p3, p4, p5));
 
             Solicitacao sol1 = new Solicitacao();
