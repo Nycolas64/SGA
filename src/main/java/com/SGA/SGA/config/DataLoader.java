@@ -55,7 +55,7 @@ public class DataLoader implements CommandLineRunner {
             Ambiente s2 = new Ambiente("Sala 2", "Capacidade 30, TV, microfone.", 30, List.of(tv1, microfone));
             Ambiente inf = new Ambiente("Informática", "Capacidade 20, computadores.", 20, List.of(computadores, tv2));
             Ambiente lab = new Ambiente("Laboratório", "Capacidade 35, microscópios.", 35, List.of(microscopios, tv3));
-            
+
             ambienteRepository.saveAll(List.of(s1, s2, inf, lab));
 
             Professor p1 = new Professor(); p1.setNome("João"); p1.setEmail("joao@unifil.br"); p1.setTitulacao("Mestre"); p1.setSenha("123456");
