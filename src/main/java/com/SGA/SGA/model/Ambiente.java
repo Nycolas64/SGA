@@ -14,7 +14,7 @@ public class Ambiente {
     private String descricao;
     private Integer capacidade;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST)
     private List<Equipamento> equipamentos;
 
     public Ambiente() {
