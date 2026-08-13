@@ -30,32 +30,11 @@ public class DataLoader implements CommandLineRunner {
             usuarioRepository.deleteAll();
             ambienteRepository.deleteAll();
 
-            Equipamento projetor = new Equipamento();
-            projetor.setNome("Projetor");
-
-            Equipamento tv1 = new Equipamento();
-            tv1.setNome("TV");
-
-            Equipamento tv2 = new Equipamento();
-            tv2.setNome("TV");
-
-            Equipamento tv3 = new Equipamento();
-            tv3.setNome("TV");
-
-            Equipamento microfone = new Equipamento();
-            microfone.setNome("Microfone");
-
-            Equipamento computadores = new Equipamento();
-            computadores.setNome("Computadores");
-
-            Equipamento microscopios = new Equipamento();
-            microscopios.setNome("Microscópios");
-
-            Ambiente s1 = new Ambiente("Sala 1", "Capacidade 40, Projetor.", 40, List.of(projetor));
-            Ambiente s2 = new Ambiente("Sala 2", "Capacidade 30, TV, microfone.", 30, List.of(tv1, microfone));
-            Ambiente inf = new Ambiente("Informática", "Capacidade 20, computadores.", 20, List.of(computadores, tv2));
-            Ambiente lab = new Ambiente("Laboratório", "Capacidade 35, microscópios.", 35, List.of(microscopios, tv3));
-
+            Ambiente s1 = new Ambiente("Sala 1", "Capacidade 40, Projetor.", 40, "Projetor");
+            Ambiente s2 = new Ambiente("Sala 2", "Capacidade 30, TV, microfone.", 30, "TV, Microfone");
+            Ambiente inf = new Ambiente("Informática", "Capacidade 20, computadores.", 20, "Computadores, TV");
+            Ambiente lab = new Ambiente("Laboratório", "Capacidade 35, microscópios.", 35, "Microscópios, TV");
+            
             ambienteRepository.saveAll(List.of(s1, s2, inf, lab));
 
             Professor p1 = new Professor(); p1.setNome("João"); p1.setEmail("joao@unifil.br"); p1.setTitulacao("Mestre"); p1.setSenha("123456");
