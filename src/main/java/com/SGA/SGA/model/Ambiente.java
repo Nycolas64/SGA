@@ -1,7 +1,9 @@
 package com.SGA.SGA.model;
 
-import jakarta.persistence.*;
-import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class Ambiente {
@@ -13,14 +15,12 @@ public class Ambiente {
     private String nome;
     private String descricao;
     private Integer capacidade;
-
-    @ManyToMany(cascade = CascadeType.PERSIST)
-    private List<Equipamento> equipamentos;
+    private String equipamentos;
 
     public Ambiente() {
     }
 
-    public Ambiente(String nome, String descricao, Integer capacidade, List<Equipamento> equipamentos) {
+    public Ambiente(String nome, String descricao, Integer capacidade, String equipamentos) {
         this.nome = nome;
         this.descricao = descricao;
         this.capacidade = capacidade;
@@ -35,6 +35,6 @@ public class Ambiente {
     public void setDescricao(String descricao) { this.descricao = descricao; }
     public Integer getCapacidade() { return capacidade; }
     public void setCapacidade(Integer capacidade) { this.capacidade = capacidade; }
-    public List<Equipamento> getEquipamentos() { return equipamentos; }
-    public void setEquipamentos(List<Equipamento> equipamentos) { this.equipamentos = equipamentos; }
+    public String getEquipamentos() { return equipamentos; }
+    public void setEquipamentos(String equipamentos) { this.equipamentos = equipamentos; }
 }
