@@ -24,7 +24,15 @@ public class SolicitacaoService {
     }
 
     public Optional<Solicitacao> buscarPorId(Long id) {
-        return repository.findById(id);
+        Optional<Solicitacao> opt = repository.findById(id);
+        if (opt.isPresent()) {
+            Solicitacao sol = opt.get();
+            if (sol.getStatus() == StatusSolicitacao.PENDENTE) {
+                sol.setStatus(StatusSolicitacao.EM_ANALISE);
+                repository.save(sol);
+            }
+        }
+        return opt;
     }
 
     public Solicitacao atualizarStatus(Long id, StatusSolicitacao novoStatus) {
