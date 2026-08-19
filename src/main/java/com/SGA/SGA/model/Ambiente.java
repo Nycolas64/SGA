@@ -4,6 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import java.util.List;
+import java.util.ArrayList;
 
 @Entity
 public class Ambiente {
@@ -15,12 +18,14 @@ public class Ambiente {
     private String nome;
     private String descricao;
     private Integer capacidade;
-    private String equipamentos;
+
+    @ManyToMany
+    private List<Equipamento> equipamentos = new ArrayList<>();
 
     public Ambiente() {
     }
 
-    public Ambiente(String nome, String descricao, Integer capacidade, String equipamentos) {
+    public Ambiente(String nome, String descricao, Integer capacidade, List<Equipamento> equipamentos) {
         this.nome = nome;
         this.descricao = descricao;
         this.capacidade = capacidade;
@@ -35,6 +40,6 @@ public class Ambiente {
     public void setDescricao(String descricao) { this.descricao = descricao; }
     public Integer getCapacidade() { return capacidade; }
     public void setCapacidade(Integer capacidade) { this.capacidade = capacidade; }
-    public String getEquipamentos() { return equipamentos; }
-    public void setEquipamentos(String equipamentos) { this.equipamentos = equipamentos; }
+    public List<Equipamento> getEquipamentos() { return equipamentos; }
+    public void setEquipamentos(List<Equipamento> equipamentos) { this.equipamentos = equipamentos; }
 }
