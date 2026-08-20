@@ -12,7 +12,7 @@ public class Solicitacao {
     private Long id;
 
     @ManyToOne
-    private Professor professor;
+    private Usuario usuario;
 
     @ManyToOne
     private Ambiente ambiente;
@@ -41,8 +41,8 @@ public class Solicitacao {
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
-    public Professor getProfessor() { return professor; }
-    public void setProfessor(Professor professor) { this.professor = professor; }
+    public Usuario getUsuario() { return usuario; }
+    public void setUsuario(Usuario usuario) { this.usuario = usuario; }
     public Ambiente getAmbiente() { return ambiente; }
     public void setAmbiente(Ambiente ambiente) { this.ambiente = ambiente; }
     public Gestor getGestor() { return gestor; }
