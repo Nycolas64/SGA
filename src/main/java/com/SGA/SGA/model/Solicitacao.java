@@ -12,28 +12,36 @@ public class Solicitacao {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
 
     @ManyToOne
+    @JoinColumn(name = "ambiente_id", nullable = false)
     private Ambiente ambiente;
 
     @ManyToOne
+    @JoinColumn(name = "gestor_id")
     private Gestor gestor;
 
     @Column(nullable = false)
     private LocalDate data;
 
-    @Column(nullable = false)
+    @Column(name = "horario_inicio", nullable = false)
     private LocalTime horarioInicio;
 
-    @Column(nullable = false)
+    @Column(name = "horario_fim", nullable = false)
     private LocalTime horarioFim;
 
+    @Column(name = "publico_esperado", nullable = false)
     private Integer publicoEsperado;
+
+    @Column(nullable = false, length = 500)
     private String motivo;
+
     private String anexo;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private StatusSolicitacao status;
 
     public Solicitacao() {
