@@ -3,6 +3,7 @@ package com.SGA.SGA.controller;
 import com.SGA.SGA.model.Ambiente;
 import com.SGA.SGA.service.AmbienteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,6 +15,9 @@ public class AmbienteController {
 
     @Autowired
     private AmbienteService service;
+
+    @Autowired
+    private SimpMessagingTemplate messagingTemplate;
 
     @GetMapping
     public List<Ambiente> listar() {
@@ -33,11 +37,24 @@ public class AmbienteController {
     @PutMapping("/{id}")
     public Ambiente editar(@PathVariable Long id, @RequestBody Ambiente ambiente) {
         ambiente.setId(id);
-        return service.salvar(ambiente);
+        Ambiente salvo = service.salvar(ambiente);
+        messagingTemplate.convertAndSend("/topic/ambientes", "AMBIENTE_ATIVO:" + id);
+        return salvo;
     }
 
     @DeleteMapping("/{id}")
     public void excluir(@PathVariable Long id) {
         service.excluir(id);
+        messagingTemplate.convertAndSend("/topic/ambientes", "AMBIENTE_REMOVIDO:" + id);
+    }
+
+    @PostMapping("/{id}/editar")
+    public void sinalizarEdicao(@PathVariable Long id) {
+        messagingTemplate.convertAndSend("/topic/ambientes", "AMBIENTE_EDICAO:" + id);
+    }
+
+    @PostMapping("/{id}/cancelar")
+    public void sinalizarCancelamento(@PathVariable Long id) {
+        messagingTemplate.convertAndSend("/topic/ambientes", "AMBIENTE_ATIVO:" + id);
     }
 }
