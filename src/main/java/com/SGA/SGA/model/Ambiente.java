@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.JoinColumn;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -20,6 +22,11 @@ public class Ambiente {
     private Integer capacidade;
 
     @ManyToMany
+    @JoinTable(
+        name = "ambiente_equipamento",
+        joinColumns = @JoinColumn(name = "ambiente_id", nullable = false),
+        inverseJoinColumns = @JoinColumn(name = "equipamento_id", nullable = false)
+    )
     private List<Equipamento> equipamentos = new ArrayList<>();
 
     public Ambiente() {
