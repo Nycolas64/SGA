@@ -47,14 +47,4 @@ public class AmbienteController {
         service.excluir(id);
         messagingTemplate.convertAndSend("/topic/ambientes", "AMBIENTE_REMOVIDO:" + id);
     }
-
-    @PostMapping("/{id}/editar")
-    public void sinalizarEdicao(@PathVariable Long id) {
-        messagingTemplate.convertAndSend("/topic/ambientes", "AMBIENTE_EDICAO:" + id);
-    }
-
-    @PostMapping("/{id}/cancelar")
-    public void sinalizarCancelamento(@PathVariable Long id) {
-        messagingTemplate.convertAndSend("/topic/ambientes", "AMBIENTE_ATIVO:" + id);
-    }
 }
