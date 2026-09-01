@@ -24,15 +24,7 @@ public class SolicitacaoService {
     }
 
     public Optional<Solicitacao> buscarPorId(Long id) {
-        Optional<Solicitacao> opt = repository.findById(id);
-        if (opt.isPresent()) {
-            Solicitacao sol = opt.get();
-            if (sol.getStatus() == StatusSolicitacao.PENDENTE) {
-                sol.setStatus(StatusSolicitacao.EM_ANALISE);
-                repository.save(sol);
-            }
-        }
-        return opt;
+        return repository.findById(id);
     }
 
     public Solicitacao atualizarStatus(Long id, StatusSolicitacao novoStatus) {
@@ -40,7 +32,7 @@ public class SolicitacaoService {
 
         if (novoStatus == StatusSolicitacao.APROVADA) {
             boolean conflito = repository.existsByAmbienteAndDataAndStatusAndHorarioInicioBeforeAndHorarioFimAfter(
-                    sol.getAmbiente(), sol.getData(), StatusSolicitacao.APROVADA, sol.getHorarioFim(), sol.getHorarioInicio()
+                sol.getAmbiente(), sol.getData(), StatusSolicitacao.APROVADA, sol.getHorarioFim(), sol.getHorarioInicio()
             );
 
             if (conflito) {
