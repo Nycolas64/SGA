@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Column;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -17,8 +18,12 @@ public class Ambiente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String nome;
+
     private String descricao;
+
+    @Column(nullable = false)
     private Integer capacidade;
 
     @ManyToMany
