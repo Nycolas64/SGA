@@ -179,7 +179,10 @@ body {
     margin-bottom: 15px;
 }
 
-.field-box label { font-weight: bold; margin-bottom: 5px; }
+.field-box label { 
+    font-weight: bold; 
+    margin-bottom: 5px; 
+}
 
 .field-box input, .field-box textarea {
     padding: 10px;
@@ -225,6 +228,7 @@ body {
     gap: 15px;
     margin-bottom: 30px;
     padding: 10px 0;
+    align-items: center;
 }
 
 .tab-btn {
@@ -300,4 +304,48 @@ body {
     margin-top: 100px;
     text-transform: uppercase;
     opacity: 0.5;
+}
+
+/* NOVAS REGRAS DE ESTILO PARA EXIBIÇÃO EM TABELA (Cards para Linhas) */
+
+.solicitacoes-tabela {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.solicitacoes-tabela th {
+    background-color: var(--unifil-orange);
+    color: var(--white);
+    text-align: left;
+    padding: 12px 15px;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.solicitacoes-tabela td {
+    padding: 12px 15px;
+    color: var(--unifil-dark);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #eee;
+}
+
+.solicitacoes-tabela tbody tr {
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.solicitacoes-tabela tbody tr:hover {
+    background-color: rgba(245, 130, 32, 0.05);
+}
+
+.toggle-view-btn:hover {
+    background-color: var(--unifil-orange) !important;
+    transform: scale(1.02);
+    transition: all 0.2s ease;
 }
