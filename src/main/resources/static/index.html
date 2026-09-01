@@ -19,7 +19,7 @@
             <i class="fas fa-bell"></i> Solicitações
         </button>
         <button class="nav-item active" onclick="mostrarSecao('mapa')" id="btnNavMapa">
-            <i class="fas fa-map"></i> Mapa
+            <i class="fas fa-map"></i> Ambientes
         </button>
         <button class="nav-item"><i class="fas fa-cog"></i> Configurações</button>
     </nav>
@@ -52,6 +52,9 @@
             <button class="tab-btn" onclick="carregarSolicitacoes('APROVADA')">Aprovadas</button>
             <button class="tab-btn" onclick="carregarSolicitacoes('REJEITADA')">Rejeitadas</button>
             <button class="tab-btn" onclick="carregarSolicitacoes('EXPIRADA')">Expiradas</button>
+            <button class="tab-btn toggle-view-btn" onclick="alternarVisualizacao()" style="margin-left: auto; background-color: var(--unifil-dark); color: var(--white); border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;">
+                <i class="fas fa-list"></i> Alternar Exibição
+            </button>
         </div>
     </header>
 
