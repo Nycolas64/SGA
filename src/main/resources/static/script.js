@@ -6,6 +6,7 @@ let ambienteEditando = null;
 let solicitacaoAberta = null;
 let equipamentoEditando = null;
 let visualizacaoLista = true;
+let statusAtual = 'PENDENTE';
 
 async function carregarAmbientes() {
     try {
@@ -78,12 +79,11 @@ function mostrarSecao(secao) {
 
 function alternarVisualizacao() {
     visualizacaoLista = !visualizacaoLista;
-    const btnAtivo = document.querySelector('.tab-btn.active');
-    const status = btnAtivo ? btnAtivo.innerText.toUpperCase() : 'PENDENTE';
-    carregarSolicitacoes(status);
+    carregarSolicitacoes(statusAtual);
 }
 
 async function carregarSolicitacoes(status) {
+    statusAtual = status;
     const botoes = document.querySelectorAll('.tab-btn');
     botoes.forEach(btn => {
         if (!btn.classList.contains('toggle-view-btn')) {
@@ -186,7 +186,7 @@ async function atualizarStatus(novoStatus) {
 
         alert("Sucesso! O status foi atualizado.");
         fecharModalDetalhes();
-        carregarSolicitacoes('PENDENTE');
+        carregarSolicitacoes(statusAtual);
     } catch (error) {
         console.error(error);
         alert("Erro técnico ao processar a solicitação.");
