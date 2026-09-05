@@ -90,7 +90,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: white !important;
+    flex-shrink: 0;
+}
+
+.back-circle-decoration i {
+    color: var(--white) !important;
+    font-size: 1.1rem !important;
+    display: inline-block !important;
 }
 
 .header-labels {
@@ -181,7 +188,10 @@ body {
 
 .field-box label { 
     font-weight: bold; 
-    margin-bottom: 5px; \n}\n\n.field-box input, .field-box textarea {
+    margin-bottom: 5px; 
+}
+
+.field-box input, .field-box textarea {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -344,4 +354,3 @@ body {
     transform: scale(1.02);
     transition: all 0.2s ease;
 }
-
